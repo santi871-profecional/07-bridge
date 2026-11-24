@@ -7,7 +7,7 @@ public class ReporteInventario extends Reporte {
     private final List<Existencia> existencias;
 
     public ReporteInventario(Formato formato, List<Existencia> existencias) {
-        super(new FormatoCsv());
+        super(formato);
         this.existencias = List.copyOf(existencias);
     }
 
