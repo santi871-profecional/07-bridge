@@ -18,7 +18,13 @@ public class FormatoCsv implements Formato {
         return valores.stream().map(FormatoCsv::escapar).collect(Collectors.joining(","));
     }
 
-    static String escapar(String valor) {
-        return valor;
+   static String escapar(String valor) {
+    if (valor.contains(",") || valor.contains("\"")
+            || valor.contains("\n") || valor.contains("\r")) {
+
+        return "\"" + valor.replace("\"", "\"\"") + "\"";
     }
+
+    return valor;
+}
 }
