@@ -19,12 +19,17 @@ public class FormatoCsv implements Formato {
     }
 
    static String escapar(String valor) {
-    if (valor.contains(",") || valor.contains("\"")
-            || valor.contains("\n") || valor.contains("\r")) {
-
+    if (requiereComillas(valor)) {
         return "\"" + valor.replace("\"", "\"\"") + "\"";
     }
 
     return valor;
+}
+
+private static boolean requiereComillas(String valor) {
+    return valor.contains(",")
+            || valor.contains("\"")
+            || valor.contains("\n")
+            || valor.contains("\r");
 }
 }
