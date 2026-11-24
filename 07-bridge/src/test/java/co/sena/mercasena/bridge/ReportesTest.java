@@ -34,4 +34,29 @@ class ReportesTest {
         assertEquals("[]", new ReporteVentas(new FormatoJson(), List.of()).generar());
         assertEquals("producto,stock", new ReporteInventario(new FormatoCsv(), List.of()).generar());
     }
+    @Test
+void csvConComas() {
+    List<Venta> ventasConComas = List.of(
+        new Venta("Café, 500 g", 2, new BigDecimal("36000"))
+        
+    );
+
+    assertEquals(
+        "producto,cantidad,total\n\"Café, 500 g\",2,36000",
+        new ReporteVentas(new FormatoCsv(), ventasConComas).generar()
+    );
 }
+  // Nueva prueba
+    @Test
+    void jsonConComillas() {
+        List<Venta> ventasConComillas = List.of(
+            new Venta("Café \"Premium\"", 2, new BigDecimal("36000"))
+        );
+
+        assertEquals(
+            "[{\"producto\":\"Café \\\"Premium\\\"\",\"cantidad\":\"2\",\"total\":\"36000\"}]",
+            new ReporteVentas(new FormatoJson(), ventasConComillas).generar()
+        );
+    }
+}
+

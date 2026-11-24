@@ -22,9 +22,10 @@ Copia una fila por cada consulta importante.
 
 | # | Herramienta (ChatGPT / Gemini / DeepSeek / Copilot / otra) | Prompt (resumen o enlace) | ¿Qué respondió? | ¿Era correcto? ¿Cómo lo verifiqué? | ¿Lo usé? (sí / no / modificado) |
 |---|---|---|---|---|---|
-| 1 | | | | | |
-| 2 | | | | | |
-| 3 | | | | | |
+| 1 |ChatGPT |¿Por qué Maven no encuentra el archivo pom.xml? |Identificó que estaba en la carpeta incorrecta. |.Ingresé a la carpeta interna. | |
+| 2 |ChatGPT| Analizar el resultado de mvn test.|Identificó que el reporte devuelve CSV en lugar de JSON. |Registré la prueba fallida. | |
+| 3 || 3 | ChatGPT | ¿Cómo crear una prueba para detectar el error de las comas en CSV? | Sugirió una prueba con JUnit 5 para verificar el manejo de las comas. | Acepté la propuesta, ejecuté la prueba y comprobé que el error existe. |
+| 4 | ChatGPT | ¿Cómo comprobar el error de las comillas en JSON? | Sugirió crear una prueba con un producto que contiene comillas. | Acepté la propuesta y comprobé el tercer error mediante Maven. |
 
 ## 3. Jurado de IAs
 
